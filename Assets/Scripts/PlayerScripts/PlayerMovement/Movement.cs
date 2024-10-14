@@ -50,8 +50,6 @@ public class Movement : MonoBehaviour
 
     public void MovementInput(InputAction.CallbackContext context)
     {
-        Debug.Log(context.phase);
-        Debug.Log(context.ReadValue<Vector3>());
         movementInput = context.ReadValue<Vector3>();
 
         if (context.started)
