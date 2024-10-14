@@ -1,4 +1,4 @@
 # Mini-Game-Jam
-Mini game jam med Erik
-Start: 14 Okt 2024
+Mini game jam med Erik <br/>
+Start: 14 Okt 2024 <br/>
 End: 18 Okt 2024
