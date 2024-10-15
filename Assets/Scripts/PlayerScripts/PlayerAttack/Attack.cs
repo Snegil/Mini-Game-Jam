@@ -12,7 +12,7 @@ public class Attack : MonoBehaviour
     [Space, SerializeField, Header("Weapon stats")]
     List<GameObject> rockDestructionLevels = new();
     [SerializeField]
-    int rockHealth = 3;    
+    int rockHealth = 9;    
 
     [Space, SerializeField]
     Animator anim;
@@ -67,14 +67,10 @@ public class Attack : MonoBehaviour
             return;
         }
 
-        if (hit.collider.CompareTag("Enemy"))
+        if (hit.collider.CompareTag("Enemy") || hit.collider.CompareTag("Wall"))
         {
-            Debug.Log("ENEMY HIT");
+            rockHealth--;
+            
         }
-        if (hit.collider.CompareTag("Wall"))
-        {
-            Debug.Log("WALL HIT");
-        }
-
     }
 }
