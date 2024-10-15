@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class HeadBobbing : MonoBehaviour
 {
+    [SerializeField]
+    float sinOffset = 0;
+
+    [SerializeField]
+    float sinAmplification = 0.05f;
+
+    [SerializeField]
+    float sinFrequency = 10f;
+
     void Start()
     {
 
@@ -13,5 +22,6 @@ public class HeadBobbing : MonoBehaviour
     void Update()
     {
 
+        transform.localPosition = new Vector3(0, sinAmplification * Mathf.Sin(Time.time * sinFrequency) + sinOffset, 0);
     }
 }
