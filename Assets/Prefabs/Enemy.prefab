@@ -12639,7 +12639,7 @@ GameObject:
   - component: {fileID: -2606155329045321371}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12729,8 +12729,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 2.8510659}
+  m_Center: {x: 0, y: 0, z: 0.15625513}
 --- !u!54 &7603924474037330609
 Rigidbody:
   m_ObjectHideFlags: 0
