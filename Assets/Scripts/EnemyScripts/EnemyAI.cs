@@ -17,7 +17,10 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        agent.SetDestination(player.transform.position);
+        if (agent.enabled)
+        {
+            agent.SetDestination(player.transform.position);    
+        }        
     }
 
     public void AssignPlayerVariable(GameObject player)

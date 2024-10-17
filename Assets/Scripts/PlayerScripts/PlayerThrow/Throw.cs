@@ -41,16 +41,18 @@ public class Throw : MonoBehaviour
     {
         anim.Play("Throw", 0, 0);
 
-        if (hasRock)
+        if (context.started && hasRock || context.started && true)
         {
             GameObject instantiated = Instantiate(rockToInstantiate, rockInHand.transform.position, quaternion.identity, null);
-            instantiated.GetComponent<Rigidbody>().AddForce(Camera.main.gameObject.transform.forward * throwMultiplier * throwForce);
+            instantiated.GetComponent<Rigidbody>().AddForce(throwForce * throwMultiplier * Camera.main.gameObject.transform.forward);
+
+            instantiated.GetComponent<RockDamageScript>().AssignThrowMultiplier(throwMultiplier);
 
             hasRock = false;
             rockInHand.SetActive(false);   
         }
 
-        throwMultiplier = 0;
+        throwMultiplier = 1;
     }
 
     public void ReloadRock()
