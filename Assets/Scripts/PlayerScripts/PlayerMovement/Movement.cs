@@ -58,7 +58,7 @@ public class Movement : MonoBehaviour
         if (context.canceled)
         {
             move = false;
-            rb.velocity = new(rb.velocity.x / 2, rb.velocity.y, rb.velocity.z / 2);
+            rb.velocity = new(0, 0, 0);
         }
     }
 

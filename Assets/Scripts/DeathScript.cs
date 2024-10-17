@@ -34,7 +34,7 @@ public class DeathScript : MonoBehaviour
     }
     IEnumerator DeathText() 
     {   
-        for (int j = 0; j < 4; j++)
+        for (int j = 0; j < 6; j++)
         {
             for (int i = 0; i < texts.Count; i++)
             {

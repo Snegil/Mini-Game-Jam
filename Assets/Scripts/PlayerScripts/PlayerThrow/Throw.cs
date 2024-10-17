@@ -23,6 +23,9 @@ public class Throw : MonoBehaviour
     [Space, SerializeField]
     Animator anim;
 
+    [Space, SerializeField, Header("Revolutions until fully charged")]
+    float throwRevolutions;
+
     // Update is called once per frame
     void Update()
     {
@@ -33,7 +36,7 @@ public class Throw : MonoBehaviour
     {
         if (context.started)
         {
-            throwMultiplier += context.ReadValue<float>() / 20000;
+            throwMultiplier += context.ReadValue<float>() / (throwRevolutions * 1000);
             throwMultiplier = Mathf.Clamp(throwMultiplier, 0, 1);  
         }
     }

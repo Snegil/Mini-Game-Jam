@@ -9,8 +9,12 @@ public class RockDamageScript : MonoBehaviour
 
     bool hitEnemy = false;
 
+    [SerializeField]
+    LayerMask layer;
+
     void OnCollisionEnter(Collision other)
     {
+        Debug.Log(throwMultiplier);
         if (hitEnemy)
         {
             return;
@@ -19,7 +23,7 @@ public class RockDamageScript : MonoBehaviour
         {
             other.collider.GetComponent<EnemyHP>().TakeDamage(throwMultiplier);
         }
-        GetComponent<Collider>().enabled = false;
+        gameObject.layer = layer;
         hitEnemy = true;
     }
     public void AssignThrowMultiplier(float val)

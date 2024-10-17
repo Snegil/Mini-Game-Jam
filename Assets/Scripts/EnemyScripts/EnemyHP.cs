@@ -12,7 +12,7 @@ public class EnemyHP : MonoBehaviour
     {
         enemyHP -= damageAmount;
 
-        if (enemyHP <= 0)
+        if (enemyHP <= 0.1)
         {
             GetComponent<NavMeshAgent>().enabled = false;
             GetComponent<Rigidbody>().useGravity = false;
