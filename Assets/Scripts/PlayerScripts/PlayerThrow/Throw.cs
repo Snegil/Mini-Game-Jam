@@ -44,7 +44,9 @@ public class Throw : MonoBehaviour
         if (hasRock)
         {
             GameObject instantiated = Instantiate(rockToInstantiate, rockInHand.transform.position, quaternion.identity, null);
-            instantiated.GetComponent<Rigidbody>().AddForce(Camera.main.gameObject.transform.forward * throwMultiplier * throwForce);
+            instantiated.GetComponent<Rigidbody>().AddForce(throwForce * throwMultiplier * Camera.main.gameObject.transform.forward);
+
+            instantiated.GetComponent<RockDamageScript>().AssignThrowMultiplier(throwMultiplier);
 
             hasRock = false;
             rockInHand.SetActive(false);   
