@@ -17,6 +17,8 @@ public class CameraRotationWithMouse : MonoBehaviour
 
     [SerializeField]
     Transform bodyTransform;
+	[SerializeField]
+	Rigidbody rb;
 
 	const string xAxis = "Mouse X"; //Strings in direct code generate garbage, storing and re-using them creates no garbage
 	const string yAxis = "Mouse Y";
@@ -29,7 +31,8 @@ public class CameraRotationWithMouse : MonoBehaviour
 		var yQuat = Quaternion.AngleAxis(rotation.y, Vector3.left);
 
 		transform.localRotation = yQuat; 
-        bodyTransform.localRotation = xQuat;
+        //bodyTransform.localRotation = xQuat;
+		rb.rotation = xQuat;
         //Quaternions seem to rotate more consistently than EulerAngles. Sensitivity seemed to change slightly at certain degrees using Euler. transform.localEulerAngles = new Vector3(-rotation.y, rotation.x, 0);
         
 	}

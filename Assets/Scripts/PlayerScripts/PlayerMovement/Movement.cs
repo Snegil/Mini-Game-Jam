@@ -7,8 +7,6 @@ public class Movement : MonoBehaviour
 {
     [SerializeField]
     float movementSpeed;
-    float setMovementSpeed;
-    float movementMultiplier;
     bool move = false;
     public bool Move { get { return move; } set { move = value; } }
      
@@ -16,7 +14,6 @@ public class Movement : MonoBehaviour
 
     Rigidbody rb;
 
-    GroundCheck groundCheck;
     void Start()
     {
         if (gameObject.GetComponent<Rigidbody>() == null)
@@ -25,25 +22,14 @@ public class Movement : MonoBehaviour
         }
 
         rb = GetComponent<Rigidbody>();
-        groundCheck = GetComponent<GroundCheck>();
-        setMovementSpeed = movementSpeed;
     }
 
     void FixedUpdate()
     {
-        if (groundCheck.GroundedCheck())
-        {
-            movementMultiplier = 1f;
-        }
-        if (!groundCheck.GroundedCheck()) 
-        {
-            movementMultiplier = 0.5f;
-        }
-
         if (move)
         {
-            rb.AddRelativeForce(movementMultiplier * movementSpeed * movementInput, ForceMode.VelocityChange);
-            //rb.velocity = new Vector3(0, 0, movementInput.z * movementSpeed);
+            rb.AddRelativeForce(movementInput * movementSpeed);
+            //rb.velocity = new Vector3(movementInput.x, 0, movementInput.z * movementSpeed);
         }
     }
 

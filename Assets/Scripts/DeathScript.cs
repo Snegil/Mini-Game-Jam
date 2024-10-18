@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class DeathScript : MonoBehaviour
 {
@@ -16,7 +17,8 @@ public class DeathScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 30;
     }
 
     // Update is called once per frame
@@ -28,20 +30,21 @@ public class DeathScript : MonoBehaviour
         }
         if (dead)
         {
+            GetComponent<PlayerInput>().enabled = false;
             StartCoroutine(DeathText());
             dead = false;
         }
     }
     IEnumerator DeathText() 
     {   
-        for (int j = 0; j < 6; j++)
+        for (int j = 0; j < 16; j++)
         {
             for (int i = 0; i < texts.Count; i++)
             {
             texts[i].text += deathMessage;
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.1f);
             }    
-        }        
+        }
         Application.Quit();
     }
     public void DeclaredDead()

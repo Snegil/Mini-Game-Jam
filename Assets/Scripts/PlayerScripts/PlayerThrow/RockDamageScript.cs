@@ -23,7 +23,7 @@ public class RockDamageScript : MonoBehaviour
         {
             other.collider.GetComponent<EnemyHP>().TakeDamage(throwMultiplier);
         }
-        gameObject.layer = layer;
+        gameObject.layer = 10;
         hitEnemy = true;
     }
     public void AssignThrowMultiplier(float val)
